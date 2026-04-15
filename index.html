@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Health Meter</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <nav class="top-nav">
+        <a class="brand" href="index.html">Health Meter</a>
+        <div class="nav-links">
+          <a href="index.html" class="active">Home</a>
+          <a href="login.html">Login</a>
+          <a href="about.html">About</a>
+          <a href="help.html">Help</a>
+        </div>
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">Dark mode</button>
+      </nav>
+      <div class="header-copy">
+        <p class="eyebrow">Health Meter</p>
+        <h1>Track Your Wellness</h1>
+        <p class="description">Enter your details to calculate BMI, hydration, and a personalized health score.</p>
+      </div>
+    </header>
+
+    <main class="dashboard-grid">
+      <section class="card form-card">
+        <h2>Wellness Dashboard</h2>
+        <form id="healthForm" class="health-form">
+          <div class="input-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" min="10" max="120" placeholder="25" required />
+          </div>
+          <div class="input-group">
+            <label for="gender">Gender</label>
+            <select id="gender" required>
+              <option value="">Select</option>
+              <option value="female">Female</option>
+              <option value="male">Male</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="height">Height (cm)</label>
+            <input type="number" id="height" min="90" max="250" placeholder="170" required />
+          </div>
+          <div class="input-group">
+            <label for="weight">Weight (kg)</label>
+            <input type="number" id="weight" min="30" max="220" placeholder="70" required />
+          </div>
+          <div class="input-group">
+            <label for="water">Water Intake (L)</label>
+            <input type="number" id="water" step="0.1" min="0" max="10" placeholder="2.5" required />
+          </div>
+          <div class="input-group">
+            <label for="exercise">Exercise (min)</label>
+            <input type="number" id="exercise" min="0" max="240" placeholder="30" required />
+          </div>
+          <button type="submit" class="primary-btn">Calculate Health</button>
+          <button type="button" id="resetBtn" class="secondary-btn">Reset Data</button>
+        </form>
+      </section>
+
+      <section class="card stats-card">
+        <h2>Health Overview</h2>
+        <div class="stat-block">
+          <div class="stat-title">BMI</div>
+          <div class="stat-value" id="bmiValue">--</div>
+          <div class="stat-label" id="bmiCategory">Enter your data</div>
+          <div class="progress-ring" data-max="40">
+            <div class="progress-inner"></div>
+          </div>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-card">
+            <span>Health Score</span>
+            <strong id="healthScore">--</strong>
+          </div>
+          <div class="stat-card">
+            <span>Hydration</span>
+            <strong id="hydrationValue">--</strong>
+          </div>
+          <div class="stat-card">
+            <span>Workout</span>
+            <strong id="exerciseValue">--</strong>
+          </div>
+        </div>
+
+        <div class="progress-list">
+          <div class="progress-item">
+            <span>BMI Status</span>
+            <div class="progress-bar">
+              <div id="bmiProgress" class="progress-fill"></div>
+            </div>
+          </div>
+          <div class="progress-item">
+            <span>Health Score</span>
+            <div class="progress-bar">
+              <div id="scoreProgress" class="progress-fill"></div>
+            </div>
+          </div>
+          <div class="progress-item">
+            <span>Hydration Level</span>
+            <div class="progress-bar">
+              <div id="waterProgress" class="progress-fill"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card suggestions-card">
+        <h2>Suggested Wellness Tips</h2>
+        <div id="suggestions" class="suggestions-list">
+          <p class="tip">Provide your details and press Calculate Health to receive personalized tips.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
